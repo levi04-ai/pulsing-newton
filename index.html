@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colmex Pro - הטבת הצטרפות מיוחדת</title>
+    <meta name="description" content="הטבת הצטרפות ללקוחות חדשים: $60 לחשבון המסחר + מסחר ללא עמלות עד $100*. הצטרפו עכשיו למערכת המסחר המובילה.">
+    
+    <!-- Google Fonts: Heebo for clean Hebrew typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Main Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <div class="logo">
+                Colmex <span class="text-primary">Pro</span>
+            </div>
+            <a href="#register" class="btn btn-outline btn-sm">
+                ליצירת קשר
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main>
+        <section class="hero text-center" id="hero">
+            <div class="container hero__content">
+                <div class="hero__badge reveal">
+                    <span class="hero__badge-pulse"></span>
+                    בהפקדה של $3,000, עד ה-18.3.26
+                </div>
+                
+                <h1 class="title-xl reveal delay-100">
+                    <span class="gradient-text">הטבת הצטרפות</span> <br>
+                    ללקוחות חדשים
+                </h1>
+                
+                <p class="subtitle reveal delay-200" style="margin-bottom: 2rem;">
+                    <strong style="color: white; font-size: 1.4rem;">$60 לחשבון המסחר + מסחר ללא עמלות עד $100*</strong>
+                </p>
+                
+                <div class="hero__actions reveal delay-300">
+                    <a href="#register" class="btn btn-primary btn-large">
+                        לפתיחת חשבון וקבלת ההטבה
+                        <span class="btn-icon-right">←</span>
+                    </a>
+                </div>
+                
+                <p class="text-muted reveal delay-300" style="font-size: 0.85rem; margin-top: 1rem;">
+                    *בכפוף לתנאי המבצע
+                </p>
+            </div>
+        </section>
+
+        <!-- Offer Details Section -->
+        <section class="section-padding" style="position: relative; z-index: 10;">
+            <div class="container text-center">
+                <h2 class="title-lg reveal">מה כוללת ההטבה?</h2>
+                <p class="subtitle reveal delay-100">בהפקדה של $3,000 תוכלו ליהנות מ:</p>
+                
+                <div class="benefits-grid reveal delay-200">
+                    <!-- Card 1 -->
+                    <div class="glass-panel benefit-card" onmousemove="handleMouseMove(event, this)">
+                        <div class="benefit-icon">💲</div>
+                        <h3>$60 מענק</h3>
+                        <p>$60 ישירות לחשבון המסחר שלכם כהטבת פתיחה.</p>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="glass-panel benefit-card delay-100" onmousemove="handleMouseMove(event, this)">
+                        <div class="benefit-icon">🛡️</div>
+                        <h3>פטור מעמלות</h3>
+                        <p>מסחר ללא עמלות עד לסך של $100*.</p>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="glass-panel benefit-card delay-200" onmousemove="handleMouseMove(event, this)">
+                        <div class="benefit-icon">🕒</div>
+                        <h3>זמינות מושלמת</h3>
+                        <p>הפלטפורמה וצוותי השירות שלנו זמינים במהלך שעות המסחר בארה"ב, לרבות מסחר מוקדם ומאוחר.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Pac-Man Style Game Section -->
+        <section class="game-section section-padding" id="game">
+            <div class="container text-center">
+                <h2 class="title-lg reveal">🧑‍💼 סוחר בשוק 🐻</h2>
+                <p class="subtitle reveal delay-100" style="margin-bottom: 2rem;">נווטו את הסוחר, אספו נקודות ופריטים מיוחדים 💰 והימנעו מהדובים!</p>
+
+                <div class="game-wrapper reveal delay-200">
+                    <!-- Score Bar -->
+                    <div class="game-hud">
+                        <div class="game-hud-item">
+                            <span class="game-hud-label">ניקוד</span>
+                            <span class="game-hud-value" id="game-score">0</span>
+                        </div>
+                        <div class="game-hud-item">
+                            <span class="game-hud-label">❤️ חיים</span>
+                            <span class="game-hud-value" id="game-lives">3</span>
+                        </div>
+                        <div class="game-hud-item">
+                            <span class="game-hud-label">🏆 שיא</span>
+                            <span class="game-hud-value" id="game-best">0</span>
+                        </div>
+                    </div>
+
+                    <!-- Game Canvas -->
+                    <div class="game-board" id="game-board">
+                        <canvas id="game-canvas"></canvas>
+
+                        <!-- Start Overlay -->
+                        <div class="game-overlay" id="game-overlay-start">
+                            <div class="game-overlay-emoji">🧑‍💼</div>
+                            <h3>סוחר בשוק</h3>
+                            <p>השתמשו בחצים ⬆️⬇️⬅️➡️ לנווט<br>אספו נקודות ופריטים 💰📈🚀 והימנעו מ-🐻!</p>
+                            <button class="btn btn-primary" onclick="startGame()">התחל משחק</button>
+                        </div>
+
+                        <!-- End Overlay -->
+                        <div class="game-overlay game-overlay--hidden" id="game-overlay-end">
+                            <div class="game-overlay-emoji" id="end-emoji">🏆</div>
+                            <h3 id="end-title">כל הכבוד!</h3>
+                            <p id="end-message">הרווחתם <strong id="end-score">0</strong> נקודות</p>
+                            <button class="btn btn-primary" onclick="startGame()">שחקו שוב</button>
+                            <a href="#register" class="btn btn-outline" style="margin-top: 0.5rem;">לפתיחת חשבון אמיתי</a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Controls -->
+                    <div class="game-mobile-controls" id="mobile-controls">
+                        <div class="dpad">
+                            <button class="dpad-btn dpad-up" ontouchstart="setMobileDir(0,-1)" onmousedown="setMobileDir(0,-1)">▲</button>
+                            <button class="dpad-btn dpad-left" ontouchstart="setMobileDir(-1,0)" onmousedown="setMobileDir(-1,0)">◀</button>
+                            <button class="dpad-btn dpad-right" ontouchstart="setMobileDir(1,0)" onmousedown="setMobileDir(1,0)">▶</button>
+                            <button class="dpad-btn dpad-down" ontouchstart="setMobileDir(0,1)" onmousedown="setMobileDir(0,1)">▼</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services & Advantages Section -->
+        <section class="features-section section-padding">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 3rem;">
+                    <h2 class="title-lg reveal">שירותים ויתרונות של Colmex Pro</h2>
+                    <p class="subtitle reveal delay-100">הפלטפורמה המתקדמת ביותר לניתוב ולביצוע פקודות</p>
+                </div>
+                
+                <div class="features-list">
+                    
+                    <!-- Feature -->
+                    <div class="feature-item reveal box-shadow">
+                        <div class="feature-item-icon">🎧</div>
+                        <div class="feature-item-content">
+                            <h4>חדר מסחר</h4>
+                            <p>זמין במהלך שעות הפעילות בשוק האמריקאי.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature -->
+                    <div class="feature-item reveal delay-100">
+                        <div class="feature-item-icon">💬</div>
+                        <div class="feature-item-content">
+                            <h4>תמיכה טכנית בעברית</h4>
+                            <p>מענה אנושי בנושאים תפעוליים הקשורים לשימוש בפלטפורמה, לאורך שעות המסחר.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature -->
+                    <div class="feature-item reveal delay-200">
+                        <div class="feature-item-icon">🤝</div>
+                        <div class="feature-item-content">
+                            <h4>קשרי לקוחות</h4>
+                            <p>צוותים זמינים לאורך שעות המסחר למענה מקצועי בנושאים תפעוליים ושירותיים.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature -->
+                    <div class="feature-item reveal delay-300">
+                        <div class="feature-item-icon">📈</div>
+                        <div class="feature-item-content">
+                            <h4>גישה לשוק האמריקאי</h4>
+                            <p>אפשרות מסחר במניות, אופציות ו-ETFs הנסחרים בארה"ב.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature -->
+                    <div class="feature-item reveal delay-200">
+                        <div class="feature-item-icon">⚡</div>
+                        <div class="feature-item-content">
+                            <h4>מערכת מסחר עוצמתית</h4>
+                            <p>ביצוע פקודות מהיר, ממשק אינטואיטיבי וכלים מתקדמים לניתוח שוק – הכל במקום אחד.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature -->
+                    <div class="feature-item reveal delay-100">
+                        <div class="feature-item-icon">🏛️</div>
+                        <div class="feature-item-content">
+                            <h4>חברה מפוקחת</h4>
+                            <p>Colmex Pro Ltd הינה חברת השקעות מפוקחת ומוסדרת על-ידי רשות ניירות ערך בקפריסין (CySEC), רישיון מס' 123/10.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="cta-section section-padding" id="register">
+            <div class="container">
+                <div class="cta-box reveal">
+                    <h2 class="title-lg" style="margin-bottom: 2rem; color: white;">פעלו עכשיו במקצועיות</h2>
+                    <p class="subtitle" style="margin-bottom: 2rem; color: rgba(255,255,255,0.9);">
+                        פתחו חשבון ותיהנו מההטבות!
+                    </p>
+                    <a href="#register" class="btn btn-primary btn-large" style="background-color: var(--clr-secondary); box-shadow: 0 4px 20px rgba(97, 206, 112, 0.4);">
+                        לפתיחת חשבון וקבלת ההטבה
+                        <span class="btn-icon-right">←</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-disclaimer">
+                <strong>הודעה חשובה:</strong> חברת Colmex Pro Ltd מורשית ומפוקחת על ידי רשות ניירות ערך של קפריסין (CySEC), ברישיון מספר 123/10. מסחר בכלים פיננסיים (לרבות מניות) ו/או שימוש במינוף כרוך ברמת סיכון גבוהה ואינו בהכרח מתאים לכל המשקיעים. לפני שתחליט לסחור במוצרים הפיננסיים המוצעים על ידי החברה, עליך לשקול בקפידה את מטרותיך, מצבך הפיננסי, צרכיך ורמת ניסיונך, לקרוא ולהבין את תנאי השימוש וההסתייגויות של החברה.
+            </div>
+            <div class="text-center" style="margin-top: 1.5rem; color: var(--clr-text-muted); font-size: 0.8rem;">
+                © 2026 Colmex Pro. כל הזכויות שמורות.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for animations and interactions -->
+    <script>
+        // 1. Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+        
+        // 2. Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // 3. Mouse Move Hover Effect for Glasses (Mouse Tracking Flashlight)
+        function handleMouseMove(e, card) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        }
+
+        // =============================================
+        // 4. Pac-Man Style Trading Game (Canvas)
+        // =============================================
+        (() => {
+            const canvas = document.getElementById('game-canvas');
+            const ctx = canvas.getContext('2d');
+            const board = document.getElementById('game-board');
+
+            // --- Constants ---
+            const TILE = 40;
+            const COLS = 17;
+            const ROWS = 10;
+            const PLAYER_SPEED = 3;
+            const BEAR_BASE_SPEED = 1.4;
+            const POWER_EMOJIS = ['💰', '📈', '🚀', '💎'];
+            const BEAR_COUNT = 3;
+            const INVINCIBLE_MS = 1500;
+
+            let W, H;
+            let running = false;
+            let animFrame = null;
+            let score = 0;
+            let lives = 3;
+            let level = 1;
+            let best = parseInt(localStorage.getItem('colmex-pacman-best') || '0');
+            document.getElementById('game-best').textContent = best;
+
+            // Player
+            let player = { x: 0, y: 0, dx: 0, dy: 0, nextDx: 0, nextDy: 0, invincibleUntil: 0 };
+
+            // Bears (enemies)
+            let bears = [];
+
+            // Dots (small pellets) and Power-ups (corner specials)
+            let dots = [];
+            let powerups = [];
+            let floats = [];
+
+            // Corner cells for power-ups
+            const CORNER_CELLS = [
+                { col: 1, row: 1 },
+                { col: COLS - 2, row: 1 },
+                { col: 1, row: ROWS - 2 },
+                { col: COLS - 2, row: ROWS - 2 }
+            ];
+
+            // Map: 0 = open, 1 = wall
+            const MAP = [
+                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                [1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1],
+                [1,0,1,1,0,1,1,0,1,0,1,1,0,1,1,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,1,0,1,0,1,1,1,1,1,0,1,0,1,0,1],
+                [1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1],
+                [1,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1],
+                [1,0,1,1,0,1,1,0,1,0,1,1,0,1,1,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            ];
+
+            function resizeCanvas() {
+                W = COLS * TILE;
+                H = ROWS * TILE;
+                canvas.width = W;
+                canvas.height = H;
+                canvas.style.width = '100%';
+                canvas.style.height = 'auto';
+                canvas.style.maxWidth = W + 'px';
+                canvas.style.display = 'block';
+                canvas.style.margin = '0 auto';
+            }
+            resizeCanvas();
+
+            function isWall(col, row) {
+                if (row < 0 || row >= ROWS || col < 0 || col >= COLS) return true;
+                return MAP[row][col] === 1;
+            }
+
+            function canMove(px, py, dx, dy, size) {
+                const nx = px + dx;
+                const ny = py + dy;
+                const half = size / 2 - 2;
+                // Check 4 corners
+                const checks = [
+                    [nx - half, ny - half],
+                    [nx + half, ny - half],
+                    [nx - half, ny + half],
+                    [nx + half, ny + half]
+                ];
+                for (const [cx, cy] of checks) {
+                    const col = Math.floor(cx / TILE);
+                    const row = Math.floor(cy / TILE);
+                    if (isWall(col, row)) return false;
+                }
+                return true;
+            }
+
+            function isCorner(col, row) {
+                return CORNER_CELLS.some(c => c.col === col && c.row === row);
+            }
+
+            function spawnDots() {
+                dots = [];
+                powerups = [];
+                for (let r = 0; r < ROWS; r++) {
+                    for (let c = 0; c < COLS; c++) {
+                        if (MAP[r][c] === 0) {
+                            if (r === 1 && c === 1) continue; // player start
+                            if (isCorner(c, r)) {
+                                powerups.push({
+                                    x: c * TILE + TILE / 2,
+                                    y: r * TILE + TILE / 2,
+                                    emoji: POWER_EMOJIS[powerups.length % POWER_EMOJIS.length],
+                                    collected: false
+                                });
+                            } else {
+                                dots.push({
+                                    x: c * TILE + TILE / 2,
+                                    y: r * TILE + TILE / 2,
+                                    collected: false
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+
+            function spawnBears() {
+                bears = [];
+                const bearSpeed = Math.min(BEAR_BASE_SPEED + (level - 1) * 0.15, PLAYER_SPEED * 0.85);
+                const starts = [
+                    { col: COLS - 2, row: 1 },
+                    { col: COLS - 2, row: ROWS - 2 },
+                    { col: Math.floor(COLS / 2), row: Math.floor(ROWS / 2) }
+                ];
+                const count = Math.min(BEAR_COUNT + Math.floor((level - 1) / 2), 6);
+                for (let i = 0; i < count; i++) {
+                    const s = starts[i % starts.length];
+                    bears.push({
+                        x: s.col * TILE + TILE / 2,
+                        y: s.row * TILE + TILE / 2,
+                        dx: (Math.random() < 0.5 ? 1 : -1) * bearSpeed,
+                        dy: 0,
+                        speed: bearSpeed,
+                        changeTimer: 0
+                    });
+                }
+            }
+
+            function resetPlayer() {
+                player.x = 1 * TILE + TILE / 2;
+                player.y = 1 * TILE + TILE / 2;
+                player.dx = 0;
+                player.dy = 0;
+                player.nextDx = 0;
+                player.nextDy = 0;
+                player.invincibleUntil = performance.now() + INVINCIBLE_MS;
+            }
+
+            // --- Input ---
+            document.addEventListener('keydown', (e) => {
+                if (!running) return;
+                switch (e.key) {
+                    case 'ArrowUp':    case 'w': player.nextDx = 0;  player.nextDy = -PLAYER_SPEED; e.preventDefault(); break;
+                    case 'ArrowDown':  case 's': player.nextDx = 0;  player.nextDy = PLAYER_SPEED;  e.preventDefault(); break;
+                    case 'ArrowLeft':  case 'a': player.nextDx = -PLAYER_SPEED; player.nextDy = 0; e.preventDefault(); break;
+                    case 'ArrowRight': case 'd': player.nextDx = PLAYER_SPEED;  player.nextDy = 0; e.preventDefault(); break;
+                }
+            });
+
+            // Mobile d-pad
+            window.setMobileDir = function(dx, dy) {
+                if (!running) return;
+                player.nextDx = dx * PLAYER_SPEED;
+                player.nextDy = dy * PLAYER_SPEED;
+            };
+
+            // --- Drawing ---
+            function drawMap() {
+                for (let r = 0; r < ROWS; r++) {
+                    for (let c = 0; c < COLS; c++) {
+                        if (MAP[r][c] === 1) {
+                            ctx.fillStyle = '#0e2240';
+                            ctx.fillRect(c * TILE, r * TILE, TILE, TILE);
+                            ctx.strokeStyle = 'rgba(38, 206, 186, 0.12)';
+                            ctx.lineWidth = 1;
+                            ctx.strokeRect(c * TILE + 0.5, r * TILE + 0.5, TILE - 1, TILE - 1);
+                        }
+                    }
+                }
+            }
+
+            function drawDots() {
+                for (const dot of dots) {
+                    if (!dot.collected) {
+                        ctx.beginPath();
+                        ctx.arc(dot.x, dot.y, 3, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(38, 206, 186, 0.8)';
+                        ctx.fill();
+                    }
+                }
+            }
+
+            function drawPowerups(now) {
+                ctx.font = '20px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                for (const p of powerups) {
+                    if (!p.collected) {
+                        const pulse = Math.sin(now / 300) * 0.4 + 0.6;
+                        ctx.shadowColor = 'rgba(97, 206, 112, 0.7)';
+                        ctx.shadowBlur = 8 + pulse * 6;
+                        ctx.fillText(p.emoji, p.x, p.y);
+                        ctx.shadowBlur = 0;
+                    }
+                }
+            }
+
+            function drawPlayer(now) {
+                const blinking = now < player.invincibleUntil && Math.floor(now / 100) % 2 === 0;
+                if (!blinking) {
+                    ctx.font = '26px sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.shadowColor = 'rgba(38, 206, 186, 0.6)';
+                    ctx.shadowBlur = 14;
+                    ctx.fillText('🧑‍💼', player.x, player.y);
+                    ctx.shadowBlur = 0;
+                }
+            }
+
+            function drawBears() {
+                ctx.font = '24px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.shadowColor = 'rgba(239, 68, 68, 0.5)';
+                ctx.shadowBlur = 10;
+                for (const bear of bears) {
+                    ctx.fillText('🐻', bear.x, bear.y);
+                }
+                ctx.shadowBlur = 0;
+            }
+
+            function addFloat(x, y, text, color) {
+                floats.push({ x, y, text, color, born: performance.now(), duration: 700 });
+            }
+
+            function drawFloats(now) {
+                ctx.font = 'bold 14px Heebo, sans-serif';
+                ctx.textAlign = 'center';
+                for (let i = floats.length - 1; i >= 0; i--) {
+                    const f = floats[i];
+                    const age = now - f.born;
+                    if (age > f.duration) { floats.splice(i, 1); continue; }
+                    const progress = age / f.duration;
+                    ctx.globalAlpha = 1 - progress;
+                    ctx.fillStyle = f.color;
+                    ctx.fillText(f.text, f.x, f.y - progress * 25);
+                }
+                ctx.globalAlpha = 1;
+            }
+
+            // --- Update ---
+            function updatePlayer() {
+                if ((player.nextDx !== 0 || player.nextDy !== 0) && canMove(player.x, player.y, player.nextDx, player.nextDy, TILE * 0.8)) {
+                    player.dx = player.nextDx;
+                    player.dy = player.nextDy;
+                }
+                if (canMove(player.x, player.y, player.dx, player.dy, TILE * 0.8)) {
+                    player.x += player.dx;
+                    player.y += player.dy;
+                }
+
+                // Collect small dots
+                for (const dot of dots) {
+                    if (!dot.collected) {
+                        const dist = Math.hypot(player.x - dot.x, player.y - dot.y);
+                        if (dist < TILE * 0.45) {
+                            dot.collected = true;
+                            score += 1;
+                            document.getElementById('game-score').textContent = score;
+                        }
+                    }
+                }
+
+                // Collect power-ups
+                for (const p of powerups) {
+                    if (!p.collected) {
+                        const dist = Math.hypot(player.x - p.x, player.y - p.y);
+                        if (dist < TILE * 0.5) {
+                            p.collected = true;
+                            score += 50;
+                            document.getElementById('game-score').textContent = score;
+                            addFloat(p.x, p.y, '+50', '#61CE70');
+                        }
+                    }
+                }
+
+                // All collected -> next level
+                if (dots.every(d => d.collected) && powerups.every(p => p.collected)) {
+                    level++;
+                    spawnDots();
+                    spawnBears();
+                    resetPlayer();
+                    addFloat(W / 2, H / 2, 'שלב ' + level + '!', '#26CEBA');
+                }
+            }
+
+            function updateBears() {
+                const now = performance.now();
+                for (const bear of bears) {
+                    bear.changeTimer--;
+                    if (bear.changeTimer <= 0) {
+                        bear.changeTimer = 25 + Math.floor(Math.random() * 35);
+                        const sp = bear.speed;
+                        const dirs = [
+                            { dx: sp, dy: 0 },
+                            { dx: -sp, dy: 0 },
+                            { dx: 0, dy: sp },
+                            { dx: 0, dy: -sp }
+                        ];
+                        const valid = dirs.filter(d => canMove(bear.x, bear.y, d.dx, d.dy, TILE * 0.7));
+                        if (valid.length > 0) {
+                            if (Math.random() < 0.55) {
+                                valid.sort((a, b) => {
+                                    const dA = Math.hypot((bear.x + a.dx * 10) - player.x, (bear.y + a.dy * 10) - player.y);
+                                    const dB = Math.hypot((bear.x + b.dx * 10) - player.x, (bear.y + b.dy * 10) - player.y);
+                                    return dA - dB;
+                                });
+                                bear.dx = valid[0].dx;
+                                bear.dy = valid[0].dy;
+                            } else {
+                                const pick = valid[Math.floor(Math.random() * valid.length)];
+                                bear.dx = pick.dx;
+                                bear.dy = pick.dy;
+                            }
+                        }
+                    }
+                    if (canMove(bear.x, bear.y, bear.dx, bear.dy, TILE * 0.7)) {
+                        bear.x += bear.dx;
+                        bear.y += bear.dy;
+                    } else {
+                        bear.changeTimer = 0;
+                    }
+                    if (now > player.invincibleUntil) {
+                        const dist = Math.hypot(player.x - bear.x, player.y - bear.y);
+                        if (dist < TILE * 0.6) {
+                            lives--;
+                            document.getElementById('game-lives').textContent = lives;
+                            if (lives <= 0) { endGame(); return; }
+                            resetPlayer();
+                        }
+                    }
+                }
+            }
+
+            // --- Game Loop ---
+            function gameLoop() {
+                if (!running) return;
+                const now = performance.now();
+
+                ctx.clearRect(0, 0, W, H);
+                ctx.fillStyle = '#060d18';
+                ctx.fillRect(0, 0, W, H);
+
+                drawMap();
+                drawDots();
+                drawPowerups(now);
+                updatePlayer();
+                updateBears();
+                drawBears();
+                drawPlayer(now);
+                drawFloats(now);
+
+                animFrame = requestAnimationFrame(gameLoop);
+            }
+
+            // --- Start / End ---
+            window.startGame = function() {
+                score = 0;
+                lives = 3;
+                level = 1;
+                running = true;
+                floats = [];
+
+                document.getElementById('game-score').textContent = '0';
+                document.getElementById('game-lives').textContent = '3';
+
+                document.getElementById('game-overlay-start').classList.add('game-overlay--hidden');
+                document.getElementById('game-overlay-end').classList.add('game-overlay--hidden');
+
+                resizeCanvas();
+                spawnDots();
+                spawnBears();
+                resetPlayer();
+
+                if (animFrame) cancelAnimationFrame(animFrame);
+                gameLoop();
+            };
+
+            function endGame() {
+                running = false;
+                if (animFrame) cancelAnimationFrame(animFrame);
+
+                if (score > best) {
+                    best = score;
+                    localStorage.setItem('colmex-pacman-best', best);
+                    document.getElementById('game-best').textContent = best;
+                }
+
+                document.getElementById('end-score').textContent = score;
+                if (score >= 300) {
+                    document.getElementById('end-emoji').textContent = '🏆';
+                    document.getElementById('end-title').textContent = 'סוחר אגדי!';
+                } else if (score >= 150) {
+                    document.getElementById('end-emoji').textContent = '👏';
+                    document.getElementById('end-title').textContent = 'כל הכבוד!';
+                } else {
+                    document.getElementById('end-emoji').textContent = '💪';
+                    document.getElementById('end-title').textContent = 'נסו שוב!';
+                }
+                document.getElementById('game-overlay-end').classList.remove('game-overlay--hidden');
+            }
+
+            // Initial draw - show maze with ghost dots
+            resizeCanvas();
+            ctx.fillStyle = '#060d18';
+            ctx.fillRect(0, 0, W, H);
+            drawMap();
+            for (let r = 0; r < ROWS; r++) {
+                for (let c = 0; c < COLS; c++) {
+                    if (MAP[r][c] === 0) {
+                        ctx.beginPath();
+                        ctx.arc(c * TILE + TILE/2, r * TILE + TILE/2, 3, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(38, 206, 186, 0.3)';
+                        ctx.fill();
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
